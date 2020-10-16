@@ -9,6 +9,7 @@
   "dependencies": {
     "@types/react-leaflet": "^2.5.2",
     "autoprefixer": "^9.8.6",
+    "axios": "^0.20.0",
     "leaflet": "^1.7.1",
     "parcel": "^1.12.4",
     "react": "^16.14.0",

@@ -4,5 +4,9 @@
   "main": "index.js",
   "repository": "https://github.com/bulenteroglu/ip-address-tracker.git",
   "author": "Bulent Eroglu <eroglu.bulent98@Gmail.com>",
-  "license": "MIT"
+  "license": "MIT",
+  "workspaces": [
+    "packages/*"
+],
+"private": true
 }

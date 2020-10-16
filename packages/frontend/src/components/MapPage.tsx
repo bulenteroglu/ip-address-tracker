@@ -1,16 +1,22 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { Map, Marker, Popup, TileLayer } from "react-leaflet";
 
-export default function MapPage() {
+export default function MapPage({ data }: { data: any }) {
+  const [coords, setCoords] = useState();
+
+  useEffect(() => {
+    console.log(data);
+  });
+
   return (
     <Map
-      center={[0, 0]}
+      center={[data ? data.location.lat : 51, data ? data.location.lng : 0]}
       zoom={12}
       style={{
         height: "100vh",
         position: "relative",
         marginTop: "-5rem",
-        zIndex: "0",
+        zIndex: 0,
       }}
     >
       <TileLayer
