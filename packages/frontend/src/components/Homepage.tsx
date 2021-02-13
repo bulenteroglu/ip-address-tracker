@@ -85,7 +85,7 @@ export default function Homepage() {
           </div>
         </div>
         <div className='top-0 flex items-center justify-center'>
-          <Detail data={data} />
+          {data && <Detail data={data} />}
         </div>
       </div>
       <MapPage data={data} />
