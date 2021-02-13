@@ -4,19 +4,30 @@ import Detail from "./Detail";
 import MapPage from "./MapPage";
 import axios from "axios";
 
+interface IDetails {
+  ip?: string;
+  location: {
+    city?: string;
+    timezone?: string;
+  };
+  isp?: string;
+}
+
 export default function Homepage() {
   const [ip, setIp] = useState("8.8.8.8");
-  const [data, setData] = useState();
+  const [data, setData] = useState<IDetails | null>();
+
+  console.log(data);
 
   useEffect(() => {
     axios
       .get(
         `https://geo.ipify.org/api/v1?apiKey=at_h74Y3wQX821IbOl4zO0zpF8LHPGOA&ipAddress=${ip}`
       )
-      .then((data) => {
-        setData(data.data);
+      .then((res) => {
+        setData(res.data);
       });
-  });
+  }, []);
 
   function onSubmit(e: React.FormEvent<HTMLFormElement>) {
     e.preventDefault();
@@ -24,8 +35,8 @@ export default function Homepage() {
       .get(
         `https://geo.ipify.org/api/v1?apiKey=at_h74Y3wQX821IbOl4zO0zpF8LHPGOA&ipAddress=${ip}`
       )
-      .then((data) => {
-        setData(data.data);
+      .then((res) => {
+        setData(res.data);
       });
 
     setIp("");

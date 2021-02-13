@@ -31,7 +31,7 @@ export default function MapPage({ data }: { data: any }) {
       <Marker
         position={[data ? data.location.lat : 51, data ? data.location.lng : 0]}
       >
-        <Popup>{data ? data.location.city : null} </Popup>
+        <Popup>{data && data.location.city} </Popup>
       </Marker>
     </Map>
   );
